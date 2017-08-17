@@ -1,36 +1,36 @@
 // Business Logic
-var convert = function (inputNumber){
+var convert = function (number){
   var symbol = ["M","D", "C", "L","X","V","I"];
   var value = [1000,500,100,50,10,5,1];
   var numerals=[];
-  var bookmark = [];
-  var sum = 0
-  var input =
+  // var bookmark = [];
+  var input = 0
 
-
-    if(input>=1000){
-      input = inputNumber
-      numerals.push("M") ;
-    }else if (input>=500){
-      numerals.push("D");
-      return ;
-    }else if (input>=100){
-      numerals.push("C");
-      return ;
-    }else if (input>=50){
-      numerals.push("L")
-      return ;
-    }else if (input>=10){
-      numerals.push("X")
-      return ;
-    }else if (input>=5){
-      numerals.push("V")
-      return ;
-    }else{
-      numerals.push("I")
-      return ;
-    }
-
+      while(number>0){
+        if(number- 1000>=0){
+          numerals.push("M");
+          number -= 1000;
+        }else if (number>=500){
+          numerals.push("D");
+          number -= 500;
+        }else if (number>=100){
+          numerals.push("C");
+          number-=100
+        }else if (number>=50){
+          numerals.push("L")
+          number -=50
+        }else if (number>=10){
+          number -=10
+          numerals.push("X")
+        }else if (number>=5){
+         number-=5
+          numerals.push("V")
+        }else{
+          number-=1
+          numerals.push("I");
+        };
+      };
+      return numerals.join();
 };
 
   // for(var i =0; i < value.length; i++){
@@ -64,9 +64,9 @@ var convert = function (inputNumber){
 $(document).ready(function(){
   $("form#numeral").submit(function(event){
     event.preventDefault();
-    var inputNumber = parseInt($("input#number").val());
+    var number = parseInt($("input#number").val());
  // Need to add appropriate variable inside text below
-    $("#convertedNumerals").text(convert(inputNumber));
+    $("#convertedNumerals").text(convert(number));
 
   });
 });
