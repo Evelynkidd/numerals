@@ -5,7 +5,7 @@ var convert = function (number){
   var numerals=[];
   // var bookmark = [];
   var input = 0
-
+// debugger
       while(number>0){
         if(number- 1000>=0){
           numerals.push("M");
@@ -30,7 +30,8 @@ var convert = function (number){
           numerals.push("I");
         };
       };
-      return numerals.join();
+      var result = numerals.join("");
+      return result;
 };
 
   // for(var i =0; i < value.length; i++){
